@@ -1,3 +1,6 @@
+/**
+LeetCode #5. Longest Palindromic Substring (MEDIUM)
+
 class Solution {
     public String longestPalindrome(String s) {
         int start = 0;
@@ -29,3 +32,4 @@ class Solution {
         return right-left-1;
     }
 }
+ */
