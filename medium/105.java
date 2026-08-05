@@ -2,32 +2,31 @@
 LeetCode #105. Construct Binary Tree from Preorder and Inorder Traversal (MEDIUM)
 
 class Solution {
+    int current = 0;
+    Map<Integer, Integer> inMap = new HashMap<>();
+
     public TreeNode buildTree(int[] preorder, int[] inorder) {
-        if (preorder.length == 0 || inorder.length == 0)
+        for (int i = 0; i < inorder.length; i++)
+        {
+            inMap.put(inorder[i], i);
+        }
+
+        return helper(preorder, 0, inorder.length-1);
+    }
+
+    private TreeNode helper(int[] preorder, int left, int right) {
+        if (left > right)
         {
             return null;
         }
+            
+        TreeNode root = new TreeNode(preorder[current++]);
+        int mid = inMap.get(root.val);
 
-        TreeNode root = new TreeNode(preorder[0]);
-
-        int mid = 0;
-        while (inorder[mid] != preorder[0])
-        {
-            mid ++;
-        }
-
-        root.left = buildTree(
-            Arrays.copyOfRange(preorder, 1, mid+1), 
-            Arrays.copyOfRange(inorder, 0, mid)
-            );
-
-        root.right = buildTree(
-            Arrays.copyOfRange(preorder, mid+1, preorder.length), 
-            Arrays.copyOfRange(inorder, mid+1, inorder.length)
-            );
+        root.left = helper(preorder, left, mid-1);
+        root.right = helper(preorder, mid+1, right);
 
         return root;
-
     }
 }
  */
