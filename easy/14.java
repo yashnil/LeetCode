@@ -1,4 +1,5 @@
-package easy;
+/**
+LeetCode #14. Longest Common Prefix (EASY)
 
 class Solution {
     public String longestCommonPrefix(String[] strs) {
@@ -20,3 +21,4 @@ class Solution {
         return longest;
     }
 }
+ */

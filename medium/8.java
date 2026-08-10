@@ -1,3 +1,6 @@
+/**
+Leetcode #8. String to Integer (atoi) (MEDIUM)
+
 class Solution {
     public int myAtoi(String s) {
         int i = 0;
@@ -28,7 +31,8 @@ class Solution {
                 if (sign == 1) 
                 {
                     return Integer.MAX_VALUE;
-                } else 
+                } 
+                else 
                 {
                     return Integer.MIN_VALUE;
                 }
@@ -41,3 +45,4 @@ class Solution {
         return result * sign;
     }
 }
+ */
